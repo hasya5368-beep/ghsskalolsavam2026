@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHSS Panamaram • Kalolsavam 2026</title>
+<style>
+:root{
+  --bg:#170c24; --card:rgba(35,18,55,.88); --card2:rgba(54,23,65,.88); --text:#fffaf2;
+  --muted:#dfcfe4; --gold:#ffd166; --green:#56e39a; --red:#ff6682;
+  --blue:#65b5ff; --yellow:#f5d76e; --border:rgba(255,255,255,.16);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+background:
+radial-gradient(circle at 12% 18%,rgba(255,99,132,.28),transparent 22%),
+radial-gradient(circle at 86% 12%,rgba(255,209,102,.25),transparent 20%),
+radial-gradient(circle at 75% 78%,rgba(83,177,255,.20),transparent 24%),
+linear-gradient(145deg,#12071d,#241033 48%,#10091b);position:relative;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+background-image:
+radial-gradient(circle at 20% 35%,#ffd166 0 2px,transparent 3px),
+radial-gradient(circle at 80% 55%,#ff6682 0 2px,transparent 3px),
+radial-gradient(circle at 45% 80%,#65b5ff 0 2px,transparent 3px);
+background-size:90px 90px,130px 130px,160px 160px;z-index:-1}
+body:after{content:"🎭   💃   🎶   🪘   🎨   🎤   ✨   🕺   🎻   🥁";
+position:fixed;inset:auto -40px 8px -40px;white-space:nowrap;font-size:34px;letter-spacing:22px;
+opacity:.09;transform:rotate(-3deg);pointer-events:none;z-index:-1}
+header{min-height:460px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 20px;
+position:relative;overflow:hidden;background:
+linear-gradient(180deg,rgba(8,3,15,.12),rgba(8,3,15,.62)),
+radial-gradient(circle at 50% 20%,rgba(255,209,102,.30),transparent 30%)}
+header:before{content:"KATHAKALI   •   MOHINIYATTAM   •   MUSIC   •   DANCE   •   DRAMA";
+position:absolute;top:25px;left:0;right:0;text-align:center;color:#ffd166;opacity:.18;
+font-size:13px;font-weight:900;letter-spacing:5px}
+header:after{content:"🎭  💃  🎶  🪘  🎨  🎤  🕺  🎻  🥁";
+position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:38px;letter-spacing:12px;
+opacity:.28;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))}
+.hero{max-width:1050px;position:relative;z-index:2}
+.badge{display:inline-block;padding:9px 15px;border:1px solid rgba(255,209,102,.4);border-radius:999px;color:var(--gold);background:rgba(255,209,102,.08);font-weight:700;letter-spacing:.5px}
+h1{font-size:clamp(42px,8vw,88px);line-height:.95;margin:20px 0 12px;letter-spacing:-3px}
+.hero p{font-size:clamp(16px,2.5vw,21px);color:var(--muted);margin:0 auto 25px;max-width:760px}
+.hero .buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;color:#07111f;background:var(--gold);padding:12px 20px;border-radius:14px;font-weight:800}
+.btn.alt{background:transparent;color:var(--text);border:1px solid var(--border)}
+.container{width:min(1180px,92%);margin:auto}
+section{padding:55px 0}
+.section-title{font-size:34px;margin:0 0 8px}.section-sub{color:var(--muted);margin:0 0 25px}
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.score{padding:20px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,var(--card),var(--card2));position:relative;overflow:hidden}
+.score strong{font-size:38px;display:block}.score span{color:var(--muted)}
+.score.first{outline:2px solid rgba(57,217,138,.55)}
+.crown{position:absolute;right:15px;top:12px;font-size:26px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
+.filter,.search{background:var(--card);color:var(--text);border:1px solid var(--border);padding:12px 16px;border-radius:13px;font-size:15px}
+.filter{cursor:pointer;font-weight:700}.filter.active{background:var(--gold);color:#07111f}
+.search{flex:1;min-width:230px;outline:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,rgba(35,18,55,.94),rgba(53,24,67,.94));border:1px solid var(--border);border-radius:20px;padding:20px;transition:.2s;cursor:pointer}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,209,102,.45)}
+.tag{display:inline-block;font-size:12px;font-weight:800;padding:6px 9px;border-radius:999px;background:rgba(85,167,255,.12);color:#9dccff}
+.tag.done{background:rgba(57,217,138,.12);color:#7df0b3}.tag.up{background:rgba(255,209,102,.1);color:var(--gold)}
+.card h3{margin:14px 0 7px;font-size:20px}.card p{color:var(--muted);margin:0}
+.winner{margin-top:15px;padding:12px;border-radius:14px;background:rgba(57,217,138,.08);border:1px solid rgba(57,217,138,.15)}
+.winner b{color:#8af2bd}.winner small{display:block;color:var(--muted);margin-top:3px}
+.details{margin-top:30px;padding:24px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid var(--border);display:none}
+.details.show{display:block}.details h3{margin-top:0}.podium{display:grid;gap:9px;margin-top:15px}
+.person{padding:12px 14px;border-radius:13px;background:rgba(255,255,255,.045);display:flex;justify-content:space-between;gap:10px}
+.person span{color:var(--muted)}
+.note{padding:16px;border-left:4px solid var(--gold);background:rgba(255,209,102,.06);color:#dce8f4;border-radius:10px}
+footer{text-align:center;padding:35px 15px;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.score-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.score-grid{grid-template-columns:1fr 1fr}h1{letter-spacing:-1.5px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <div class="badge">🎭 SCHOOL KALOLSAVAM 2026</div>
+    <h1>GHSS PANAMARAM</h1>
+    <p>കലയുടെ നിറങ്ങളും കഴിവുകളുടെ വേദിയും — On Stage & Off Stage പരിപാടികളുടെ നിലവിലെ ഫലം</p>
+    <div class="buttons">
+      <a class="btn" href="#programs">View Programs</a>
+      <a class="btn alt" href="#score">View House Score</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="score">
+<div class="container">
+  <h2 class="section-title">🏆 Current House Score</h2>
+  <p class="section-sub">Uploaded result sheet-ൽ നൽകിയിരിക്കുന്ന നിലവിലെ total points അടിസ്ഥാനമാക്കി.</p>
+  <div class="score-grid">
+    <div class="score first"><div class="crown">👑</div><strong>57</strong><span>GREEN • 1st</span></div>
+    <div class="score"><strong>41</strong><span>RED • 2nd</span></div>
+    <div class="score"><strong>33</strong><span>BLUE • 3rd</span></div>
+    <div class="score"><strong>32</strong><span>YELLOW • 4th</span></div>
+  </div>
+</div>
+</section>
+
+<section id="programs">
+<div class="container">
+  <h2 class="section-title">🎨 Programs</h2>
+  <p class="section-sub">Completed items-ന് നിലവിലെ result details; remaining items-ന് program name മാത്രം.</p>
+  <div class="controls">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="done">✅ Completed</button>
+    <button class="filter" data-filter="up">⏳ Upcoming</button>
+    <input id="search" class="search" placeholder="🔎 Search program..." />
+  </div>
+  <div id="grid" class="grid"></div>
+  <div id="details" class="details"></div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <h2 class="section-title">🥇🥈🥉 Current Group Ranking</h2>
+  <p class="section-sub">ഇപ്പോൾ ലഭ്യമായ score sheet-ലെ group total points പ്രകാരം.</p>
+  <div class="grid">
+    <div class="card"><span class="tag done">🥇 1st GROUP</span><h3>GREEN</h3><p><strong style="font-size:30px;color:var(--green)">57 points</strong></p></div>
+    <div class="card"><span class="tag">🥈 2nd GROUP</span><h3>RED</h3><p><strong style="font-size:30px;color:var(--red)">41 points</strong></p></div>
+    <div class="card"><span class="tag">🥉 3rd GROUP</span><h3>BLUE</h3><p><strong style="font-size:30px;color:var(--blue)">33 points</strong></p></div>
+  </div>
+  <div class="note" style="margin-top:15px">4th: YELLOW — 32 points. ഈ ranking നിലവിലെ uploaded score sheet മാത്രം അടിസ്ഥാനമാക്കിയതാണ്.</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <h2 class="section-title">📌 Participation Rule</h2>
+  <div class="note">ഒരു കുട്ടിക്ക് സ്റ്റേജ് ഇനങ്ങളും ഓഫ് സ്റ്റേജ് ഇനങ്ങളും ഉൾപ്പെടെ 3 വ്യക്തിഗത ഇനങ്ങളിലും 2 ഗ്രൂപ്പ് ഇനങ്ങളിലും പങ്കെടുക്കാം.</div>
+</div>
+</section>
+</main>
+
+<footer>
+  <div>🎭 GHSS Panamaram • School Kalolsavam 2026</div>
+  <div style="margin-top:8px">Made for the school arts festival • <b>Little Kites Student</b></div>
+</footer>
+
+<script>
+const completed = [
+ {id:1,name:"ചിത്രരചന പെൻസിൽ — UP",cat:"Off Stage",places:[
+  ["1st","ANGEL ELIZABATH","RED • 5 points"],["2nd","AYISHA MEHARIN K","RED • 5 points"],
+  ["3rd","PRARTHANA VR","YELLOW • 3 points"],["3rd","RINHA YASMIN TP","GREEN • 3 points"],["","PADHYA KR","YELLOW • 3 points"],["","FATHIMA ZIYA","RED • 1 point"]]},
+ {id:2,name:"ചിത്രരചന പെൻസിൽ — HS",cat:"Off Stage",places:[
+  ["1st","ROSLEENA","GREEN • 5 points"],["2nd","SANA FATHIMA","BLUE • 5 points"],["3rd","HADIYA FATHIMA","RED • 3 points"],["","ANSIYA SHERIN NA","YELLOW • 3 points"],["","ANDRIYA ALPHONSA","YELLOW • 1 point"]]},
+ {id:3,name:"ചിത്രരചന ജലച്ചായം — UP",cat:"Off Stage",places:[
+  ["1st","ANGEL ELIZABATH","RED • 5 points"],["2nd","FATHIMA SIYA","RED • 3 points"],["3rd","ANGEL NAYAK","YELLOW • 3 points"]]},
+ {id:4,name:"ചിത്രരചന ജലച്ചായം — HS",cat:"Off Stage",places:[
+  ["1st","ANSIYA SHERIN NA","YELLOW • 5 points"],["2nd","MIDHUN KRISHNA","YELLOW • 3 points"],["3rd","RANA SHERIN","GREEN • 3 points"]]},
+ {id:5,name:"കാർട്ടൂൺ — HS",cat:"Off Stage",places:[
+  ["1st","NISHIKANTHA RAJESH","RED • 5 points"],["2nd","FATHIMA SHAHADIYA","GREEN • 1 point"],["3rd","SHAHANA SHERIN","YELLOW • 1 point"]]},
+ {id:6,name:"കഥാരചന മലയാളം — UP",cat:"Off Stage",places:[
+  ["1st","AYISHA NOURIN","BLUE • 5 points"],["2nd","HRIDHYA GOVIND","BLUE • 5 points"],["3rd","AYISHATHUL LAMIYA","YELLOW • 3 points"],["","FEBITHA NASRIN","RED • 1 point"]]},
+ {id:7,name:"കഥാരചന ഹിന്ദി — UP",cat:"Off Stage",places:[
+  ["1st","JOVANNAROSE MARIA","GREEN • 3 points"],["2nd","AMMAR","BLUE • 1 point"],["3rd","HAMZA","RED • 1 point"]]},
+ {id:8,name:"കഥാരചന മലയാളം — HS",cat:"Off Stage",places:[
+  ["1st","NISHIKANTHA RAJESH","RED • 1 point"],["2nd","HIBA FATHIMA","YELLOW • 1 point"],["3rd","FIBA FATHIMA","BLUE • 1 point"]]},
+ {id:9,name:"കഥാരചന ഇംഗ്ലീഷ് — HS",cat:"Off Stage",places:[
+  ["1st","HIDA NASRIN","GREEN • 5 points"],["2nd","SREELAKSHMI M","GREEN • 3 points"],["3rd","SIVANI BABU","GREEN • 3 points"],["","ANANYA KA","GREEN • 1 point"],["","SADHIKA M","GREEN • 1 point"]]},
+ {id:10,name:"കവിതാരചന മലയാളം — UP",cat:"Off Stage",places:[
+  ["1st","HRIDHYA GOVIND","BLUE • 3 points"],["2nd","SHAZANA","GREEN • 1 point"],["3rd","SHEHRZADA","RED • 1 point"]]},
+ {id:11,name:"കവിതാരചന മലയാളം — HS",cat:"Off Stage",places:[
+  ["1st","ANANYA","GREEN • 3 points"],["2nd","ANGEL PAUL","RED • 3 points"],["3rd","AYISHA THANHANIYA","BLUE • 1 point"]]},
+ {id:12,name:"കഥാരചന ഹിന്ദി — HS",cat:"Off Stage",places:[
+  ["1st","MUHAMMED ALI","GREEN • 3 points"],["2nd","MUHAMMED RAHMAN","GREEN • 3 points"]]},
+ {id:13,name:"കവിതാരചന ഇംഗ്ലീഷ് — HS",cat:"Off Stage",places:[
+  ["1st","HIDA NASRIN","GREEN • 5 points"],["2nd","SREELAKSHMI M","GREEN • 5 points"],["3rd","SUBHASREE","BLUE • 3 points"],["","SADHIKA M","GREEN • 3 points"],["","AGNAYA","RED • 1 point"],["","ANANYA KA","GREEN • 1 point"]]},
+ {id:14,name:"ഉപന്യാസം മലയാളം — HS",cat:"Off Stage",places:[
+  ["1st","FIDA FATHIMA","BLUE • 5 points"],["2nd","ANANDAKRISHNAN VK","GREEN • 5 points"],["3rd","DILNA SAMAD","BLUE • 3 points"],["","SAJITHA","YELLOW • 3 points"],["","AMRUTHA K","BLUE • 1 point"],["","HANNA FATHIMA","RED • 1 point"],["","NIDHIN KRISHNA","YELLOW • 1 point"]]},
+ {id:15,name:"കവിതാരചന ഹിന്ദി — HS",cat:"Off Stage",places:[
+  ["1st","MUHAMMED SHAFIGUL S","RED • 5 points"],["2nd","ARSHAD NIZAMI","YELLOW • 1 point"],["3rd","ZAHEEN ALI","YELLOW • 1 point"]]}
+];
+
+const upcoming = [
+"ചിത്രരചന എണ്ണച്ചായം — HS","ശാസ്ത്രീയ സംഗീതം ആൺ — HS","ശാസ്ത്രീയ സംഗീതം പെൺ — HS",
+"കഥകളിസംഗീതം ആൺ/പെൺ","ലളിതഗാനം UP","ലളിതഗാനം HS ആൺ","ലളിതഗാനം HS പെൺ",
+"മാപ്പിളപ്പാട്ട് UP","മാപ്പിളപ്പാട്ട് HS ആൺ","മാപ്പിളപ്പാട്ട് HS പെൺ","വീണ","വയലിൻ","ഓടക്കുഴൽ",
+"നാദസ്വരം","ചെണ്ട തായമ്പക","ഗീത്താർ","തബല","മൃദംഗം","മദ്ദളം","കഥകളി","ഓട്ടൻതുള്ളൽ",
+"നാടോടിനൃത്തം (പൊതുമത്സരം)","ചാക്യാർകൂത്ത്","നങ്ങ്യാർകൂത്ത്","ഭരതനാട്യം ആൺ/പെൺ","കുച്ചുപ്പുടി ആൺ/പെൺ",
+"മോഹിനിയാട്ടം ആൺ/പെൺ","കേരളനടനം ആൺ/പെൺ","പ്രസംഗം മലയാളം UP","പ്രസംഗം മലയാളം HS",
+"പ്രസംഗം ഇംഗ്ലീഷ് UP","പ്രസംഗം ഇംഗ്ലീഷ് HS","പ്രസംഗം ഹിന്ദി HS","പദ്യംചൊല്ലൽ മലയാളം UP","പദ്യംചൊല്ലൽ മലയാളം HS",
+"പദ്യംചൊല്ലൽ ഇംഗ്ലീഷ് UP","പദ്യംചൊല്ലൽ ഇംഗ്ലീഷ് HS","പദ്യംചൊല്ലൽ ഹിന്ദി UP","പദ്യംചൊല്ലൽ ഹിന്ദി HS",
+"പദ്യംചൊല്ലൽ അറബിക് UP","പദ്യംചൊല്ലൽ അറബിക് HS","മോണോ ആക്ട് UP","മോണോ ആക്ട് HS ആൺ","മോണോ ആക്ട് HS പെൺ",
+"മിമിക്രി HS","കഥാപ്രസംഗം UP","കഥാപ്രസംഗം HS","നാടോടിനൃത്തം UP","ദേശഭക്തിഗാനം UP","ദേശഭക്തിഗാനം HS",
+"സംഘഗാനം UP","സംഘഗാനം HS","നാടൻപാട്ട് HS","നാടോടി നൃത്തം (സിംഗിൾ) UP","നാടോടിനൃത്തം (സിംഗിൾ) HS",
+"പരിചമുട്ട് കളി","പൂരക്കളി","കോൽക്കളി","അറബനമുട്ട്","ദഫ്മുട്ട്","വഞ്ചിപ്പാട്ട്","ബാന്റ് മേളം","വൃന്ദവാദ്യം",
+"പഞ്ചവാദ്യം","ചെണ്ടമേളം","സ്കിറ്റ് ഇംഗ്ലീഷ്","നാടകം","ഇരുള നൃത്തം","മലപ്പുലയ ആട്ടം","പളിയ നൃത്തം",
+"മംഗലം കളി","പണിയനൃത്തം (വട്ടക്കളി/കമ്പക്കളി)"
+];
+
+const data=[...completed.map(x=>({...x,status:"done"})),...upcoming.map((name,i)=>({id:100+i,name,cat:"On/Off Stage",status:"up"}))];
+const grid=document.getElementById("grid"), search=document.getElementById("search"), details=document.getElementById("details");
+let filter="all";
+
+function render(){
+ const q=search.value.toLowerCase();
+ grid.innerHTML="";
+ data.filter(x=>(filter==="all"||x.status===filter)&&x.name.toLowerCase().includes(q)).forEach(x=>{
+  const el=document.createElement("article"); el.className="card";
+  el.innerHTML=`<span class="tag ${x.status==="done"?"done":"up"}">${x.status==="done"?"✅ COMPLETED":"⏳ UPCOMING"}</span>
+  <h3>${x.name}</h3><p>${x.status==="done"?"Result available — tap to view":"Program name only — result not yet available"}</p>
+  ${x.status==="done"?`<div class="winner"><b>${x.places[0][0]||"Result"} — ${x.places[0][1]}</b><small>${x.places[0][2]}</small></div>`:""}`;
+  el.onclick=()=>showDetails(x); grid.appendChild(el);
+ });
+}
+function showDetails(x){
+ details.classList.add("show");
+ if(x.status==="up"){details.innerHTML=`<h3>⏳ ${x.name}</h3><p style="color:var(--muted)">ഈ പരിപാടിയുടെ result PDF-ൽ ഇപ്പോൾ നൽകിയിട്ടില്ല. Result update ചെയ്യുമ്പോൾ ഇവിടെ names/points ചേർക്കാം.</p>`}
+ else{
+  details.innerHTML=`<h3>🏆 ${x.name}</h3><p style="color:var(--muted)">${x.cat}</p><div class="podium">
+  ${x.places.map(p=>`<div class="person"><b>${p[0]||"Participant"} ${p[1]}</b><span>${p[2]}</span></div>`).join("")}</div>`;
+ }
+ details.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;render()});
+search.oninput=render; render();
+</script>
+</body>
+</html>
